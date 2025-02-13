@@ -1,0 +1,59 @@
+# Flutter/Dart specific
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+.metadata
+.packages
+build/
+*.iml
+
+# Android
+android/.gradle/
+android/app/google-services.json
+android/key.properties
+android/.idea/
+
+# iOS
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+
+# Web
+web/.dart_tool/
+
+# macOS
+macos/.flutter-plugins
+macos/.flutter-plugins-dependencies
+macos/.symlinks/
+macos/Pods/
+macos/Flutter/ephemeral/
+
+# Windows
+windows/.dart_tool/
+
+# Linux
+linux/.dart_tool/
+
+# VS Code
+.vscode/
+
+# IntelliJ/IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Generated files
+*.lock
+pubspec.lock
+
+# Logs
+*.log
+
+# Coverage
+coverage/
+
+# Misc
+.DS_Store
+Thumbs.db

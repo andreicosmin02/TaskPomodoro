@@ -55,10 +55,10 @@ class RestingPageState extends State<RestingPage> with TickerProviderStateMixin 
 
     restTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        accumulatedRestDuration = DateTime.now().difference(restStartTime!);
-        if (restDuration.inSeconds > accumulatedRestDuration.inSeconds) {
-          restDuration -= const Duration(seconds: 1);
-        } else {
+        final elapsedTime = DateTime.now().difference(restStartTime!) + accumulatedRestDuration;
+        restDuration = calculateRestDuration(widget.workDuration) - elapsedTime;
+
+        if (restDuration.isNegative || restDuration == Duration.zero) {
           restTimer?.cancel();
           isResting = false;
           restStarted = false;
@@ -88,10 +88,10 @@ class RestingPageState extends State<RestingPage> with TickerProviderStateMixin 
 
     restTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
-        accumulatedRestDuration = DateTime.now().difference(restStartTime!) + accumulatedRestDuration;
-        if (restDuration.inSeconds > accumulatedRestDuration.inSeconds) {
-          restDuration -= const Duration(seconds: 1);
-        } else {
+        final elapsedTime = DateTime.now().difference(restStartTime!) + accumulatedRestDuration;
+        restDuration = calculateRestDuration(widget.workDuration) - elapsedTime;
+
+        if (restDuration.isNegative || restDuration == Duration.zero) {
           restTimer?.cancel();
           isResting = false;
           restStarted = false;
@@ -263,7 +263,7 @@ class RestingPageState extends State<RestingPage> with TickerProviderStateMixin 
                       ),
                       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 24),
                     ),
-                    onPressed: isResting && !isRestPaused ? pauseResting : isRestPaused ? resumeResting : null,
+                    onPressed: restStarted && isResting && !isRestPaused ? pauseResting : isRestPaused ? resumeResting : null,
                     child: Text(
                       isRestPaused ? 'Resume' : 'Pause',
                       style: const TextStyle(

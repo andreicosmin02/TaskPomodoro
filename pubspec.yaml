@@ -1,4 +1,4 @@
-name: task_pomodoro
+name: taskpomodoro
 description: "A task-based Pomodoro timer app."
 publish_to: 'none'
 version: 0.1.0
@@ -12,6 +12,7 @@ dependencies:
   google_fonts: ^6.2.1
   flutter_launcher_icons: ^0.14.3
   shared_preferences: ^2.5.2
+  cupertino_icons: ^1.0.2
 
 dev_dependencies:
   flutter_test:
@@ -21,11 +22,19 @@ dev_dependencies:
 flutter_icons:
   android: true
   ios: true
-  linux: true
-  macos: true
-  windows: true
-  minSdkVersion: 21
-  image_path: "assets/icon/app_icon.png"  
+  image_path: "assets/icon/app_icon.png"
+  web:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
+  windows:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
+  macos:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
+  linux:
+    generate: true
+    image_path: "assets/icon/app_icon.png"
 
 flutter:
   uses-material-design: true

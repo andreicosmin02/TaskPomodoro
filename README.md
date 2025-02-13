@@ -29,7 +29,7 @@ TaskPomodoro is a Flutter-based Pomodoro Timer app that helps you manage your wo
 1. **Clone the repository**:
     ```sh
     git clone https://github.com/andreicosmin02/TaskPomodoro.git
-    cd flutter-pomodoro-timer
+    cd TaskPomodoro
     ```
 
 2. **Install dependencies**:
